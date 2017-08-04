@@ -16,5 +16,10 @@ class Post extends Model
     	return $this->hasMany('App\Images');
     }
 
-    
+    public function videos()
+    {
+    	return $this->hasMany('App\Video');
+    }
+
+
 }

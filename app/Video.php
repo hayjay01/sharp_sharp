@@ -8,7 +8,6 @@ class Video extends Model
 {
     public function post()
     {
-    	# code...
     	return $this->belongsTo('App\Post');
     }
 }
