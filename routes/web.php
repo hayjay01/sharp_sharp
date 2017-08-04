@@ -26,6 +26,16 @@ Route::post('/user-login', [
     'as' => 'user.login',
 ]);
 
+Route::get('{provider}/auth', [
+    'uses' => 'SocialAuthController@auth',
+    'as' => 'social.auth',
+]);
+
+Route::get('/{provider}/redirect', [
+    'uses' => 'SocialAuthController@auth_callback',
+    'as' => 'social.callback',
+]);
+
 Route::get('logout', [
     'uses' => 'AuthController@logout',
     'as' => 'logout',

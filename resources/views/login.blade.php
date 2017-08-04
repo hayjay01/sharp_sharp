@@ -73,7 +73,7 @@
     </div>
     <form id="login_form" method="POST" action="{{ route('user.login') }}">
     {{ csrf_field() }}
-      <input type="text" name="username" placeholder="Username"/>
+      <input type="text" name="username" placeholder="Username or Email"/>
       <input type="password" name="password" placeholder="Password"/>
       <button type="button" id="login_button">Login</button>
       <div id="loader" style="display: none;"><img src="{{ asset('loader.gif') }}"></div>
@@ -102,7 +102,7 @@
     <a href="#" class="fa fa-facebook"></a>
     <a href="#" class="fa fa-twitter"></a>
     <a href="#" class="fa fa-google"></a>
-    <a href="#" class="fa fa-linkedin"></a>
+    <a href="{{ route('social.auth', ['provider' => 'linkedin']) }}" class="fa fa-linkedin"></a>
   </div>
   
 </div>

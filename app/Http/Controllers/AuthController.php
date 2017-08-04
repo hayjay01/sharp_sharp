@@ -67,6 +67,9 @@ class AuthController extends Controller
 
            return "pass"; 
 
+        }elseif(Auth::attempt(['email' => $request->username, 'password' => $request->password]))
+        {
+            return "pass";
         }  
         else {
                
