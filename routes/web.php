@@ -11,6 +11,29 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [
+    'uses' => 'AuthController@getForm',
+    'as' => 'login',
+]);
+
+Route::post('/user-register', [
+    'uses' => 'AuthController@processRegister',
+    'as' => 'user.register',
+]);
+
+Route::post('/user-login', [
+    'uses' => 'AuthController@login',
+    'as' => 'user.login',
+]);
+
+Route::get('logout', [
+    'uses' => 'AuthController@logout',
+    'as' => 'logout',
+]);
+
+Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
+    Route::get('/dashboard', [
+        'uses' => 'UsersController@index',
+        'as' => 'dashboard',
+    ]);
 });

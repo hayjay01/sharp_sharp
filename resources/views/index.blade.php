@@ -1,0 +1,1 @@
+<p>you are logged in, <a href="{{ route('logout') }}">logout</a> now  </p>

@@ -1,0 +1,36 @@
+{
+    "name": "socialnorm/facebook",
+    "description": "Facebook provider for SocialNorm",
+    "authors": [
+    {
+        "name": "Adam Wathan",
+        "email": "adam.wathan@gmail.com"
+    }
+    ],
+    "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/adamwathan/socialnorm"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "guzzlehttp/guzzle": "^6.0",
+        "socialnorm/socialnorm": "^0.2"
+    },
+    "require-dev": {
+        "mockery/mockery": "~0.8",
+        "phpunit/phpunit": "^4.8"
+    },
+    "autoload": {
+        "psr-4": {
+            "SocialNorm\\Facebook\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "files": [
+            "tests/TestCase.php"
+        ]
+    }
+}
