@@ -100,29 +100,30 @@
 
     <ul class="nav">
         <li>
-            <a href="dashboard.html">
-                <i class="ti-user"></i>
-                <p>Profile</p>
+            <a href="#">
+                <i class="ti-anchor"></i>
+                <p>All Members <span class="badge">{{ $group->members()->count() }}</span></p>
             </a>
         </li>
         <li>
-            <a href="user.html">
-                <i class="ti-panel"></i>
-                <p>Settings</p>
+            <a >
+                <i class="ti-dribbble"></i>
+                <p>Public</p>
             </a>
         </li>
         <li>
-            <a href="table.html">
+            <a>
                 <i class="ti-view-list-alt"></i>
-                <p>Table List</p>
+                <p>{{ $group->category->title }}</p>
             </a>
         </li>
         <li>
-            <a href="typography.html">
+            <a>
                 <i class="ti-text"></i>
-                <p>Typography</p>
+                <p>Posts <span class="badge">2</span></p>
             </a>
         </li>
+        <hr>
         <li>
             <a href="{{ route('group.create') }}">
                 <i class="ti-pencil-alt2"></i>
@@ -136,9 +137,9 @@
             </a>
         </li>
         <li>
-            <a href="notifications.html">
+            <a href="#">
                 <i class="ti-bell"></i>
-                <p>Notifications</p>
+                <p>Notifications <span class="badge">2</span></p>
             </a>
         </li>
     </ul>
