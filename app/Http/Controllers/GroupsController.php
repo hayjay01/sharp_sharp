@@ -91,7 +91,17 @@ class GroupsController extends Controller
      */
     public function groupSingle($slug)
     {
+        $member = Member::where('user_id', Auth::user()->id)->first();
         $group = Group::where('slug', $slug)->first();
+        if(Auth::user()->id !== $group->user_id)
+        {
+            if(count($member) === 0)
+            {
+                Session::flash('info', 'Please join the group to view post and details about the group');
+                return redirect()->back();   
+            }
+        }
+            
         return view('dashboard.group.single_group')->with('group', $group);
     }
 

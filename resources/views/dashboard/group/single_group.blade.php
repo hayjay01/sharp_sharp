@@ -5,7 +5,7 @@
     <img src="{{ asset('this.png') }}" class="img-responsive" alt="" />
     <div class="panel panel-default">
         
-        <h6><p>{{ $group->title }}</p></h6> 
+        <h6><p>{{ $group->title }} <span><i>Created by {{ strtolower($group->user->username) }}</i></span></p> </h6> 
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">

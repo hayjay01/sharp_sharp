@@ -27,7 +27,9 @@
                     @if($groups->is_already_joined())
 
                     @else
-                        <a href="{{ route('join.group', ['id' => $groups->id]) }}" class="btn btn pull-right btn-info btn-xs" style="margin-right: 9px;">Join Group</a>
+                        @if(Auth::user()->id !== $groups->user_id)
+                            <a href="{{ route('join.group', ['id' => $groups->id]) }}" class="btn btn pull-right btn-info btn-xs" style="margin-right: 9px;">Join Group</a>
+                        @endif
                     @endif
                 </div>
             </div>
