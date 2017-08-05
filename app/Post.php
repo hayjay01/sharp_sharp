@@ -20,6 +20,19 @@ class Post extends Model
     {
         return $this->hasMany('App\Image');
     }
+  
+    public function user()
+    {
+    	return $this->belongsTo('App\User');
+    }
 
-    
+    public function images()
+    {
+    	return $this->hasMany('App\Images');
+    }
+
+    public function videos()
+    {
+    	return $this->hasMany('App\Video');
+    }
 }
