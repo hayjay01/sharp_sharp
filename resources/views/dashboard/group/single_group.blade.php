@@ -93,7 +93,7 @@
 @section('sidebar')
 <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="#" class="simple-text">
+        <a href="{{ route('dashboard') }}" class="simple-text">
             {{ Auth::user()->name }}
         </a>
     </div>

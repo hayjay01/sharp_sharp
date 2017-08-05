@@ -19,12 +19,16 @@
                 </div>
                 <div class="panel-footer">
                     <span><button class="btn btn-primary btn-xs" type="button">
-                    Members <span class="badge">4</span>
+                    Members <span class="badge">{{ $groups->members()->count() }}</span>
                     </button></span>
                     <span><button class="btn btn-primary btn-xs" type="button">
                     Posts <span class="badge">4</span>
                     </button></span>
-                    <span class="btn btn pull-right btn-info btn-xs" style="margin-right: 9px;">Join Group</span>
+                    @if($groups->is_already_joined())
+
+                    @else
+                        <a href="{{ route('join.group', ['id' => $groups->id]) }}" class="btn btn pull-right btn-info btn-xs" style="margin-right: 9px;">Join Group</a>
+                    @endif
                 </div>
             </div>
         @endforeach
