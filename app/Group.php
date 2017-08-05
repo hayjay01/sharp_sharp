@@ -6,8 +6,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class Group extends Model
 {
-    public function FunctionName()
+    protected $fillable = ['category_id', 'title', 'details', 'slug', 'user_id', 'admin_id'];
+
+    public function user()
     {
-    	# code...
+        return $this->belongsTo('App\User');
+    }
+
+    public function category()
+    {
+        return $this->belongsTo('App\Category');
     }
 }
