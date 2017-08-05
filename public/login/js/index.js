@@ -42,7 +42,7 @@ $('.toggle').click(function(){
     function printErrorMsg (msg) {
 
         $(".print-error-msg").find("ul").html('');
-
+ 
         $(".print-error-msg").css('display','block');
 
         $(".print-error-msg").fadeOut(5000);

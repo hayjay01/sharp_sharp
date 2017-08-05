@@ -81,7 +81,7 @@
     <a style="text-decoration: none;" href="#">Forgot your password?</a>
   </div>
   <div class="form">
-    <div class="alert alert-danger print-error-msg" style="display:none">
+    <div class="alert alert-danger print-error-msg" style="display:none"> 
         <ul></ul>
     </div>
     <div class="alert alert-success print-success-msg" style="display:none">

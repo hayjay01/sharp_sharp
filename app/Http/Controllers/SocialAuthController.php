@@ -17,8 +17,6 @@ class SocialAuthController extends Controller
     {
         SocialAuth::login($provider, function($user, $details) {
 
-            //dd($details);
-
             // $user->avater = $details->avatar;
 
             $user->email = $details->email;

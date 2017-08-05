@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+Use App\User;
+
+use Validator;
+
+use Auth;
+
+use Session;
+
 class UsersController extends Controller
 {
     /**
@@ -13,7 +21,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        return view('index');
+        return view('dashboard.index');
     }
 
     /**
@@ -21,9 +29,25 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function passUpdate(Request $request)
     {
-        //
+        $user = User::where('id', Auth::user()->id)->first();
+        //  return "getting here";
+        $validator = Validator::make($request->all(), [
+            'username' => 'required|unique:users',
+            'password' => 'required|min:6',
+            're_password' => 'required|min:6|same:password',
+        ]);
+
+        if ($validator->fails()) {
+			return response()->json(['error'=>$validator->errors()->all()]);
+        }else{
+
+            $user->username = $request->username;
+            $user->password = bcrypt($request->password);
+            $user->save();
+            return response()->json(['success'=>'Success']);
+        }
     }
 
     /**

@@ -46,4 +46,39 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
         'uses' => 'UsersController@index',
         'as' => 'dashboard',
     ]);
+
+    Route::post('/password-update', [
+        'uses' => 'UsersController@passUpdate',
+        'as' => 'pass_update',
+    ]);
+
+    Route::post('/post-create', [
+        'uses' => 'PostsController@create',
+        'as' => 'post.create',
+    ]);
+
+    Route::get('/all-groups', [
+        'uses' => 'GroupsController@index',
+        'as' => 'groups',
+    ]);
+
+    Route::get('/group-create', [
+        'uses' => 'GroupsController@create',
+        'as' => 'group.create',
+    ]);
+
+    Route::post('/group-process', [
+        'uses' => 'GroupsController@store',
+        'as' => 'process.create',
+    ]);
+
+    Route::get('/my-groups', [
+        'uses' => 'GroupsController@myGroup',
+        'as' => 'my.group',
+    ]);
+
+    Route::get('/show/group/{slug}', [
+        'uses' => 'GroupsController@groupSingle',
+        'as' => 'show.group',
+    ]);
 });
