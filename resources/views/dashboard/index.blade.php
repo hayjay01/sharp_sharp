@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container-fluid">
-    <div class="panel panel-default">
+    {{-- <div class="panel panel-default">
         <div class="panel-heading">
             <img src="{{ asset('admin.jpg') }}" class="img-rounded" width="40px" height="40px" alt="" /> &nbsp;&nbsp;
             <span>{{ Auth::user()->username }}</span>
@@ -49,7 +49,7 @@
                 <span type="button" id="post_submit" class="btn btn pull-right btn-primary" data-loading-text="<i class='fa fa-spinner fa-spin '></i><b> Creating Post...</b>">Post</span>
             </table>
         </form>
-    </div>
+    </div> --}}
 </div>
     
 @stop
@@ -57,7 +57,7 @@
 @section('sidebar')
 <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="#" class="simple-text">
+        <a href="{{ route('dashboard') }}" class="simple-text">
             {{ Auth::user()->name }}
         </a>
     </div>
