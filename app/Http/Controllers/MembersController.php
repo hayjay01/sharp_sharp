@@ -4,24 +4,34 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-Use App\User;
+use App\Group;
 
-use Validator;
+use App\User;
 
-use Auth;
+use App\Member;
 
 use Session;
 
-class UsersController extends Controller
+use Auth;
+
+class MembersController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function joinGroup($id)
     {
-        return view('dashboard.index');
+        $group = Group::where('id', $id)->first();
+
+        Member::create([
+            'user_id' => Auth::user()->id,
+            'group_id' => $group->id,
+        ]);
+
+        Session::flash('success', 'You have joined this group successfully');
+        return redirect()->back();
     }
 
     /**
@@ -29,25 +39,9 @@ class UsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function passUpdate(Request $request)
+    public function create()
     {
-        $user = User::where('id', Auth::user()->id)->first();
-        //  return "getting here";
-        $validator = Validator::make($request->all(), [
-            'username' => 'required|unique:users',
-            'password' => 'required|min:6', 
-            're_password' => 'required|min:6|same:password',
-        ]);
-
-        if ($validator->fails()) {
-			return response()->json(['error'=>$validator->errors()->all()]);
-        }else{
-
-            $user->username = $request->username;
-            $user->password = bcrypt($request->password);
-            $user->save();
-            return response()->json(['success'=>'Success']);
-        }
+        //
     }
 
     /**

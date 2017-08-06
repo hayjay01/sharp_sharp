@@ -37,13 +37,64 @@ class PostsController extends Controller
      */
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+         $this->validate($request, [
             'post' => 'required',
+            'see' => 'required',
         ]);
 
-        if($request->hasFile('image')){
+        
+        if($request->hasFile('image'))
+        {
+            if(count($request->image) > 2)
+            {
+                Session::flash('error', 'You cannot upload more than two picture per post');
+                return redirect()->back();
+            }
+            else
+            {
+                
+                // getting all of the post data
+                $files = Input::file('image');
 
+                // Making counting of uploaded images
+                $file_count = count($files);
+
+                // start count how many uploaded
+                $uploadcount = 0;
+
+                $status = Auth::user()->posts()->create([
+                    'content'=>$request->input('post'),
+                    ]);
+
+                foreach($files as $file) {
+                    $rules = array('file' => 'required|image|max:1000'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                    $validator = Validator::make(array('file'=> $file), $rules);
+                        if($validator->passes()){
+                            $destinationPath = base_path() . 'status/';
+                                $filename = $file->getClientOriginalName();
+                                $upload_success = $file->move($destinationPath, $filename);
+                                $uploadcount ++;
+                            
+                            Image::create([
+                                'user_id' => Auth::user()->id,
+                                'post_id' => $status->id,
+                                'images' => 'status/' . $filename,
+                            ]);
+
+                        }
+                }
+
+                if($uploadcount == $file_count){
+                    Session::flash('success', 'Post created successfully');
+                    return redirect()->back();
+                }
+                else {
+                    Session::flash('error', 'Could not upload your images, please make sure they are of the type image');
+                    return redirect()->back();
+                }
+            }
         }
+        
         if($request->hasFile('video')){
 
         }
