@@ -8,7 +8,7 @@ use Validator;
 
 use Auth;
 
-use Input;
+use Illuminate\Support\Facades\Input;
 
 use Session;
 
@@ -37,12 +37,7 @@ class PostsController extends Controller
      */
     public function create(Request $request)
     {
-         $this->validate($request, [
-            'post' => 'required',
-            'see' => 'required',
-        ]);
-
-        
+         
         if($request->hasFile('image'))
         {
             if(count($request->image) > 2)
@@ -93,14 +88,15 @@ class PostsController extends Controller
                     return redirect()->back();
                 }
             }
+        }else{
+            $this->validate($request, [
+            'post' => 'required',
+            'see' => 'required',
+        ]);
+
         }
         
-        if($request->hasFile('video')){
-
-        }
-        if($request->hasFile('text')){
-
-        }
+        
     }
 
     /**

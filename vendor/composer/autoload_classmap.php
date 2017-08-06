@@ -31,6 +31,7 @@ return array(
     'App\\Http\\Controllers\\CategoriesController' => $baseDir . '/app/Http/Controllers/CategoriesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\GroupsController' => $baseDir . '/app/Http/Controllers/GroupsController.php',
+    'App\\Http\\Controllers\\MembersController' => $baseDir . '/app/Http/Controllers/MembersController.php',
     'App\\Http\\Controllers\\PostsController' => $baseDir . '/app/Http/Controllers/PostsController.php',
     'App\\Http\\Controllers\\SocialAuthController' => $baseDir . '/app/Http/Controllers/SocialAuthController.php',
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
