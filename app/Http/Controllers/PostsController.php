@@ -37,7 +37,7 @@ class PostsController extends Controller
      */
     public function create(Request $request)
     {
-        $validator = Validator::make($request->all(), [
+         $this->validate($request, [
             'post' => 'required',
             'see' => 'required',
         ]);
@@ -85,10 +85,12 @@ class PostsController extends Controller
                 }
 
                 if($uploadcount == $file_count){
-                    return response()->json(['success'=>'Success']);
+                    Session::flash('success', 'Post created successfully');
+                    return redirect()->back();
                 }
                 else {
-                    return response()->json(['error'=>'error']);
+                    Session::flash('error', 'Could not upload your images, please make sure they are of the type image');
+                    return redirect()->back();
                 }
             }
         }

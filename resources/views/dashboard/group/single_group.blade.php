@@ -13,7 +13,7 @@
             <span>{{ Auth::user()->username }}</span>
         </div>
         <!-- Default panel contents -->
-        <form method="POST" id="post_create" action="{{ route('post.create') }}" enctype="multipart/form-data" >
+        <form method="POST" action="{{ route('post.create') }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <div class="panel-body">
                 <div class="form-group{{ $errors->has('post') ? ' has-error' : '' }}">
@@ -55,7 +55,7 @@
                         </select>
                     </div>
                 </span>
-                <span type="button" id="post_submit" class="btn btn pull-right btn-primary" data-loading-text="<i class='fa fa-spinner fa-spin '></i><b> Creating Post...</b>">Post</span>
+                <button type="submit" class="btn btn pull-right btn-primary" >Post</span>
             </table>
         </form>
     </div>
