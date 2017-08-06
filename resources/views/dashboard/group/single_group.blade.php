@@ -58,25 +58,32 @@
 
     <div class="btn-group btn-group-justified" role="group" aria-label="...">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">All</button>
+            <button type="button" class="btn btn-info">All</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Text</button>
+            <button type="button" class="btn btn-info">Text</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Photos</button>
+            <button type="button" class="btn btn-info">Photos</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Videos</button>
+            <button type="button" class="btn btn-info">Videos</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Sounds</button>
+            <button type="button" class="btn btn-info">Sounds</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Files</button>
+            <button type="button" class="btn btn-info">Files</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default">Maps</button>
+            <button type="button" class="btn btn-info">Maps</button>
+        </div>
+    </div>
+    <p></br></p>
+    <div class="panel panel-default">
+        <div class="body">
+            <h2 class="text-center">No One Posted yet</h2>
+                <h3 class="text-center"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></h3>
         </div>
     </div>
 </div>
