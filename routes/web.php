@@ -11,6 +11,12 @@
 |
 */
 
+
+Route::group(['middleware' => ['admin']], function() {
+    Route::group(['prefix' => 'admin'], function() {
+        Route::match(['get', 'post'], '/', 'AdminController@login');
+    });
+});
 Route::get('/', [
     'uses' => 'AuthController@getForm',
     'as' => 'login',
