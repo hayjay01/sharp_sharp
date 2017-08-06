@@ -23,6 +23,8 @@ class Admin
             $arr[] =$k->id;
         });
 
+        // dd($arr);
+
         if (Auth::user() && in_array(Auth::user()->role_id, $arr)) {
             return $next($request);
         }

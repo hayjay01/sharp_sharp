@@ -29,12 +29,12 @@
             <!-- Table -->
             <table class="table">
                 <span class="pull-left">
-                    <div class="element">
-                    <i class="fa fa-camera"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="image[]" id="" multiple>
+                    {{-- <div class="element"> --}}
+                    {{-- <i class="fa fa-camera"></i><span class="name"></span> --}}
+                    <input type="file" name="image[]" id="" multiple>
                     </div>
                 </span>
-                <span class="pull-left">
+                {{-- <span class="pull-left">
                     <div class="element">
                     <i class="fa fa-video-camera"></i><span class="name"></span>
                     <input style="display: none" type="file" name="video" id="">
@@ -45,7 +45,7 @@
                     <i class="fa fa-file-text"></i><span class="name"></span>
                     <input style="display: none" type="file" name="text" id="">
                     </div>
-                </span>
+                </span> --}}
                 <span class="pull-left">
                     <div class="form-group">
                         <select name="see" id="" class="form-control">
