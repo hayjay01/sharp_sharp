@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
     <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
-    <link rel="stylesheet" href="{{ asset('login/css/bootstrap.css') }}">
+    {{-- <link rel="stylesheet" href="{{ asset('login/css/bootstrap.css') }}"> --}}
     <link rel="stylesheet" href="{{ asset('login/css/style.css') }}">
     <style>
       .fa {
@@ -16,7 +16,7 @@
             width: 20px;
             text-align: center;
             text-decoration: none;
-        }
+        } 
 
         /* Add a hover effect if you want */
         .fa:hover {
@@ -70,7 +70,7 @@
     <div id="log" style="display:none">
         <a class="close" data-dismiss="alert" aria-hidden="true">&times;</a>
         <span id="msg"></span>
-    </div>
+    </div><br>
     <form id="login_form" method="POST" action="{{ route('user.login') }}">
     {{ csrf_field() }}
       <input type="text" name="username" placeholder="Username or Email"/>
@@ -81,10 +81,10 @@
     <a style="text-decoration: none;" href="#">Forgot your password?</a>
   </div>
   <div class="form">
-    <div class="alert alert-danger print-error-msg" style="display:none"> 
+    <div class="alert alert-danger print-error-msg" style="display:none; color:red;"> 
         <ul></ul>
     </div>
-    <div class="alert alert-success print-success-msg" style="display:none">
+    <div class="alert alert-success print-success-msg" style="display:none; color:green;">
         <span></span>
     </div></br>
     <h2>Create an account</h2>
@@ -109,7 +109,7 @@
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 {{-- <script src='https://codepen.io/andytran/pen/vLmRVp.js'></script> --}}
     
-<script src="{{ asset('login/js/bootstrap.min.js') }}"></script>
+{{-- <script src="{{ asset('login/js/bootstrap.min.js') }}"></script> --}}
 <script src="{{ asset('login/js/index.js') }}"></script>
 
 </body>

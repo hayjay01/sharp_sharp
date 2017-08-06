@@ -8,6 +8,8 @@ use App\Group;
 
 use App\Category;
 
+use App\Member;
+
 use Validator;
 
 use Auth;
@@ -24,7 +26,8 @@ class GroupsController extends Controller
     public function index()
     {
         $group = Group::orderBy('created_at', 'desc')->get();
-        return view('dashboard.group.index')->with('group', $group);
+        return view('dashboard.group.index')->with('group', $group)
+                                            ->with('member', Member::all());
     }
 
     /**
@@ -76,7 +79,8 @@ class GroupsController extends Controller
     public function myGroup()
     {
         $group = Group::where('user_id', Auth::user()->id)->orderBy('created_at', 'desc')->get();
-        return view('dashboard.group.mygroup')->with('group', $group);
+        return view('dashboard.group.mygroup')->with('group', $group)
+                                              ->with('member', Member::all());;
     }
 
     /**
@@ -87,7 +91,17 @@ class GroupsController extends Controller
      */
     public function groupSingle($slug)
     {
+        $member = Member::where('user_id', Auth::user()->id)->first();
         $group = Group::where('slug', $slug)->first();
+        if(Auth::user()->id !== $group->user_id)
+        {
+            if(count($member) === 0)
+            {
+                Session::flash('info', 'Please join the group to view post and details about the group');
+                return redirect()->back();   
+            }
+        }
+            
         return view('dashboard.group.single_group')->with('group', $group);
     }
 

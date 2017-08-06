@@ -5,7 +5,7 @@
     <img src="{{ asset('this.png') }}" class="img-responsive" alt="" />
     <div class="panel panel-default">
         
-        <h6><p>{{ $group->title }}</p></h6> 
+        <h6><p>{{ $group->title }} <span><i>Created by {{ strtolower($group->user->username) }}</i></span></p> </h6> 
     </div>
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -13,45 +13,53 @@
             <span>{{ Auth::user()->username }}</span>
         </div>
         <!-- Default panel contents -->
-        <form method="POST" id="post_create" action="{{ route('post.create') }}" enctype="multipart/form-data" >
+        <form method="POST" action="{{ route('post.create') }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <div class="panel-body">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                     <label></label>
-                    <textarea name="post" id="post" onkeyup="textAreaAdjust(this, 70)" class="form-control" placeholder="Whats on your mind"></textarea>
+                    <textarea name="content" id="content" class="form-control" placeholder="Whats on your mind"></textarea>
+
+                    @if($errors->has('content'))
+                        <span class="help-block">{{ $errors->first('content') }}</span>
+                    @endif
                 </div>
             </div>
 
             <!-- Table -->
             <table class="table">
-                <span class="pull-left">
-                    <div class="element">
-                    <i class="fa fa-camera"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="image[]" id="" multiple>
-                    </div>
-                </span>
-                <span class="pull-left">
-                    <div class="element">
-                    <i class="fa fa-video-camera"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="video[]" id="" multiple>
-                    </div>
-                </span>
-                <span class="pull-left">
-                    <div class="element">
-                    <i class="fa fa-file-text"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="text[]" id="" multiple>
-                    </div>
-                </span>
+                <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                    <input type="file" name="image[]" id="" multiple>
+
+                    @if($errors->has('image'))
+                        <span class="help-block">{{ $errors->first('image') }}</span>
+                    @endif
+                </div>
+                <div class="form-group{{ $errors->has('video') ? ' has-error' : '' }}">  
+                    <input type="file" name="video" >
+
+                    @if($errors->has('video'))
+                        <span class="help-block">{{ $errors->first('video') }}</span>
+                    @endif
+                </div>  
+                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                    <input type="file" name="text" >
+
+                    @if($errors->has('text'))
+                        <span class="help-block">{{ $errors->first('text') }}</span>
+                    @endif
+                </div>    
+                
                 <span class="pull-left">
                     <div class="form-group">
-                        <select name="" id="" class="form-control">
+                        <select name="see" id="" class="form-control">
                             <option value="">Only me</option>
                             <option value="">Everyone</option>
                             <option value="">My Friends</option>
                         </select>
                     </div>
                 </span>
-                <span type="button" id="post_submit" class="btn btn pull-right btn-primary" data-loading-text="<i class='fa fa-spinner fa-spin '></i><b> Creating Post...</b>">Post</span>
+                <button type="submit" class="btn btn pull-right btn-primary" >Post</span>
             </table>
         </form>
     </div>
@@ -69,15 +77,6 @@
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-info">Videos</button>
         </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">Sounds</button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">Files</button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">Maps</button>
-        </div>
     </div>
     <p></br></p>
     <div class="panel panel-default">
@@ -93,36 +92,37 @@
 @section('sidebar')
 <div class="sidebar-wrapper">
     <div class="logo">
-        <a href="#" class="simple-text">
+        <a href="{{ route('dashboard') }}" class="simple-text">
             {{ Auth::user()->name }}
         </a>
     </div>
 
     <ul class="nav">
         <li>
-            <a href="dashboard.html">
-                <i class="ti-user"></i>
-                <p>Profile</p>
+            <a href="#">
+                <i class="ti-anchor"></i>
+                <p>All Members <span class="badge">{{ $group->members()->count() }}</span></p>
             </a>
         </li>
         <li>
-            <a href="user.html">
-                <i class="ti-panel"></i>
-                <p>Settings</p>
+            <a >
+                <i class="ti-dribbble"></i>
+                <p>Public</p>
             </a>
         </li>
         <li>
-            <a href="table.html">
+            <a>
                 <i class="ti-view-list-alt"></i>
-                <p>Table List</p>
+                <p>{{ $group->category->title }}</p>
             </a>
         </li>
         <li>
-            <a href="typography.html">
+            <a>
                 <i class="ti-text"></i>
-                <p>Typography</p>
+                <p>Posts <span class="badge">2</span></p>
             </a>
         </li>
+        <hr>
         <li>
             <a href="{{ route('group.create') }}">
                 <i class="ti-pencil-alt2"></i>
@@ -136,9 +136,9 @@
             </a>
         </li>
         <li>
-            <a href="notifications.html">
+            <a href="#">
                 <i class="ti-bell"></i>
-                <p>Notifications</p>
+                <p>Notifications <span class="badge">2</span></p>
             </a>
         </li>
     </ul>

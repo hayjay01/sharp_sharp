@@ -7,7 +7,7 @@
                 <span class="icon-bar bar2"></span>
                 <span class="icon-bar bar3"></span>
             </button>
-            <a class="navbar-brand" href="#">Dashboard</a>
+            <a class="navbar-brand" href="{{ route('dashboard') }}">Dashboard</a>
         </div>
         <div class="col-sm-5 col-md 5">
             <form class="navbar-form navbar-left" style="decoration: none;">
@@ -35,7 +35,7 @@
                         <ul class="dropdown-menu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Create New Page</a></li>
-                        <li><a href="#">Create New Group</a></li>
+                        <li><a href="{{ route('group.create') }}">Create New Group</a></li>
                         <li><a href="#">Edit</a></li>
                         <li><a href="#">Settings</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>

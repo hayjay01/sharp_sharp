@@ -21,6 +21,8 @@
     <!--  Paper Dashboard core CSS    -->
     <link href="{{ asset('user/css/paper-dashboard.css') }}" rel="stylesheet"/>
 
+    <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
+
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
     <link href="{{ asset('user/css/demo.css') }}" rel="stylesheet" />
@@ -145,6 +147,20 @@
 	<script src="{{ asset('user/js/demo.js') }}"></script>
 
     <script src="{{ asset('user/js/main.js') }}"></script>
+    <script src="{{ asset('js/toastr.min.js') }}"></script>
+    <script>
+        @if(Session::has('success'))
+            toastr.success("{{ Session::get('success') }}")
+        @endif
+
+        @if(Session::has('info'))
+            toastr.info("{{ Session::get('info') }}")
+        @endif
+
+        @if(Session::has('error'))
+            toastr.error("{{ Session::get('error') }}")
+        @endif
+    </script>
 
 	<script type="text/javascript">
     	$(document).ready(function(){

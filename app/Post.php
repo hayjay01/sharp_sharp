@@ -2,24 +2,31 @@
 
 namespace App;
 
-use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
     protected $fillable = [
-        'user_id', 'content',
+        'user_id', 'content', 'group_id',
     ];
-
+    
     public function user()
     {
-        return $this->hasMany('App\Post');
-    }
-    
-    public function images()
-    {
-        return $this->hasMany('App\Image');
+    	return $this->belongsTo('App\User');
     }
 
-    
+    public function images()
+    {
+    	return $this->hasMany('App\Images');
+    }
+
+    public function videos()
+    {
+    	return $this->hasMany('App\Video');
+    }
+
+    public function files()
+    {
+        return $this->hasMany('App\News');
+    }
 }

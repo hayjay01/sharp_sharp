@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/', [
     'uses' => 'AuthController@getForm',
     'as' => 'login',
@@ -80,5 +81,10 @@ Route::group(['prefix' => 'user', 'middleware' => 'auth'], function() {
     Route::get('/show/group/{slug}', [
         'uses' => 'GroupsController@groupSingle',
         'as' => 'show.group',
+    ]);
+
+    Route::get('/join-group/{id}', [
+        'uses' => 'MembersController@joinGroup',
+        'as' => 'join.group',
     ]);
 });

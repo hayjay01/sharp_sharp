@@ -53,14 +53,14 @@ function printErrorMsg (msg) {
         });
     });
 
-$("i").click(function () {
-  $("input[type='file']").trigger('click');
-});
+// $("i").click(function () {
+//   $("input[type='file']").trigger('click');
+// });
 
-$('input[type="file"]').on('change', function() {
-  var val = $(this).val();
-  $(this).siblings('span').text(val);
-})
+// $('input[type="file"]').on('change', function() {
+//   var val = $(this).val();
+//   $(this).siblings('span').text(val);
+// })
 
 // creating post
 

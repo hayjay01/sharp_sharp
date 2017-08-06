@@ -22,4 +22,9 @@ class Image extends Model
     {
         return $this->hasMany('App\Image');
     }
+    public function post()
+    {
+    	# code...
+    	return $this->belongsTo('App\Post');
+    }
 }
