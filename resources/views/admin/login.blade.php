@@ -2,7 +2,7 @@
 <html >
 <head>
   <meta charset="UTF-8">
-  <title>Login / Register</title>
+  <title>Administrator's Login</title>
   
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900|RobotoDraft:400,100,300,500,700,900'>
@@ -61,9 +61,9 @@
 </div>
 <!-- Form Module-->
 <div class="module form-module">
-  <div class="toggle"><i class="fa fa-times fa-pencil"></i>
+  <!-- <div class="toggle"><i class="fa fa-times fa-pencil"></i> -->
     
-    <div class="tooltip">Register</div>
+    <!-- <div class="tooltip">Register</div> -->
   </div>
   <div class="form">
     <h2>Login to your account</h2>
@@ -75,7 +75,7 @@
     {{ csrf_field() }}
       <input type="text" name="username" placeholder="Username or Email"/>
       <input type="password" name="password" placeholder="Password"/>
-      <button type="button" id="login_button">Login</button>
+      <button type="button" id="login_button" style="background-color:#C75757; color:white;">Login</button>
       <div id="loader" style="display: none;"><img src="{{ asset('loader.gif') }}"></div>
     </form></br>
     <a style="text-decoration: none;" href="#">Forgot your password?</a>
@@ -87,25 +87,12 @@
     <div class="alert alert-success print-success-msg" style="display:none">
         <span></span>
     </div></br>
-    <h2>Create an account</h2>
-    <form method="POST" id="register_form" action="{{ route('user.register') }}">
-    {{ csrf_field() }}
-	  <input type="text" name="name" placeholder="Name"/>
-      <input type="text" name="username"  placeholder="Username"/>
-      <input type="email" name="email" placeholder="Email Address"/>
-      <input type="password" name="password" placeholder="Password"/>
-      <input type="password" name="re_password" placeholder="Re-Password"/>
-      <button type="button" id="register_button">Register</button>
-      <div id="loader" style="display: none;"><img src="{{ asset('loader.gif') }}"></div>
-    </form></br>
-    <center>
-      <h3>Or Login with your social media</h3></br>
-          <a href="#" class="fa fa-facebook"></a>
-          <a href="#" class="fa fa-twitter"></a>
-          <a href="#" class="fa fa-google"></a>
-          <a href="{{ route('social.auth', ['provider' => 'linkedin']) }}" class="fa fa-linkedin"></a>
-    </center>
-  </div>
+<!--     <h3>Or Login with your social media</h3></br>
+    <a href="#" class="fa fa-facebook"></a>
+    <a href="#" class="fa fa-twitter"></a>
+    <a href="#" class="fa fa-google"></a>
+    <a href="{{ route('social.auth', ['provider' => 'linkedin']) }}" class="fa fa-linkedin"></a>
+ -->  </div>
   
 </div>
   <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>

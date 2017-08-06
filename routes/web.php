@@ -14,7 +14,9 @@
 
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
-        Route::match(['get', 'post'], '/', 'AdminController@login');
+        Route::match(['get', 'post'], '/', 'Admin\AdminController@index');
+            // Route::get('/users/{id}', 'Admin\UserController@show');
+
     });
 });
 Route::get('/', [
