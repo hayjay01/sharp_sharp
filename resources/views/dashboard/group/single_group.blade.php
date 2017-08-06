@@ -16,9 +16,13 @@
         <form method="POST" id="post_create" action="{{ route('post.create') }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <div class="panel-body">
-                <div class="form-group">
+                <div class="form-group{{ $errors->has('post') ? ' has-error' : '' }}">
                     <label></label>
                     <textarea name="post" id="post" class="form-control" placeholder="Whats on your mind"></textarea>
+
+                    @if($errors->has('post'))
+                        <span class="help-block">{{ $errors->first('post') }}</span>
+                    @endif
                 </div>
             </div>
 

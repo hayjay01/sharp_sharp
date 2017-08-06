@@ -47,7 +47,8 @@ class PostsController extends Controller
         {
             if(count($request->image) > 2)
             {
-                return response()->json(['error'=>'error']);
+                Session::flash('error', 'You cannot upload more than two picture per post');
+                return redirect()->back();
             }
             else
             {
