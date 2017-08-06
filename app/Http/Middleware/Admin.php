@@ -26,6 +26,6 @@ class Admin
         if (Auth::user() && in_array(Auth::user()->role_id, $arr)) {
             return $next($request);
         }
-        return redirect('/my-account');
+        return redirect('/');
     }
 }
