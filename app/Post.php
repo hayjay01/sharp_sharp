@@ -8,19 +8,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 class Post extends Model
 {
     protected $fillable = [
-        'user_id', 'content',
+        'user_id', 'content', 'group_id',
     ];
-
-    public function user()
-    {
-        return $this->hasMany('App\Post');
-    }
     
-    public function images()
-    {
-        return $this->hasMany('App\Image');
-    }
-  
     public function user()
     {
     	return $this->belongsTo('App\User');

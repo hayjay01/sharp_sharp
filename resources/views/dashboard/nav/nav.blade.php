@@ -35,7 +35,7 @@
                         <ul class="dropdown-menu">
                         <li><a href="#">Profile</a></li>
                         <li><a href="#">Create New Page</a></li>
-                        <li><a href="#">Create New Group</a></li>
+                        <li><a href="{{ route('group.create') }}">Create New Group</a></li>
                         <li><a href="#">Edit</a></li>
                         <li><a href="#">Settings</a></li>
                         <li><a href="{{ route('logout') }}">Logout</a></li>

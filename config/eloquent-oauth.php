@@ -27,7 +27,7 @@ return [
         'linkedin' => [
             'client_id' => '77snyle5ndqan5',
             'client_secret' => 'AAdLw1j8ZFou2HlQ',
-            'redirect_uri' => 'http://127.0.0.1:8000/linkedin/redirect',
+            'redirect_uri' => 'http://test-badoo.herokuapp.com/linkedin/redirect',
             'scope' => [],
         ],
         'instagram' => [
