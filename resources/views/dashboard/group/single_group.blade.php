@@ -18,7 +18,7 @@
             <div class="panel-body">
                 <div class="form-group">
                     <label></label>
-                    <textarea name="post" id="post" onkeyup="textAreaAdjust(this, 70)" class="form-control" placeholder="Whats on your mind"></textarea>
+                    <textarea name="post" id="post" class="form-control" placeholder="Whats on your mind"></textarea>
                 </div>
             </div>
 
@@ -33,18 +33,18 @@
                 <span class="pull-left">
                     <div class="element">
                     <i class="fa fa-video-camera"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="video[]" id="" multiple>
+                    <input style="display: none" type="file" name="video" id="">
                     </div>
                 </span>
                 <span class="pull-left">
                     <div class="element">
                     <i class="fa fa-file-text"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="text[]" id="" multiple>
+                    <input style="display: none" type="file" name="text" id="">
                     </div>
                 </span>
                 <span class="pull-left">
                     <div class="form-group">
-                        <select name="" id="" class="form-control">
+                        <select name="see" id="" class="form-control">
                             <option value="">Only me</option>
                             <option value="">Everyone</option>
                             <option value="">My Friends</option>

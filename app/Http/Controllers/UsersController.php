@@ -35,7 +35,7 @@ class UsersController extends Controller
         //  return "getting here";
         $validator = Validator::make($request->all(), [
             'username' => 'required|unique:users',
-            'password' => 'required|min:6',
+            'password' => 'required|min:6', 
             're_password' => 'required|min:6|same:password',
         ]);
 

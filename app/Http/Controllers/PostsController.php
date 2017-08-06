@@ -39,11 +39,59 @@ class PostsController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'post' => 'required',
+            'see' => 'required',
         ]);
 
-        if($request->hasFile('image')){
+        
+        if($request->hasFile('image'))
+        {
+            if(count($request->image) > 2)
+            {
+                return response()->json(['error'=>'error']);
+            }
+            else
+            {
+                
+                // getting all of the post data
+                $files = Input::file('image');
 
+                // Making counting of uploaded images
+                $file_count = count($files);
+
+                // start count how many uploaded
+                $uploadcount = 0;
+
+                $status = Auth::user()->posts()->create([
+                    'content'=>$request->input('post'),
+                    ]);
+
+                foreach($files as $file) {
+                    $rules = array('file' => 'required|image|max:1000'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
+                    $validator = Validator::make(array('file'=> $file), $rules);
+                        if($validator->passes()){
+                            $destinationPath = base_path() . 'status/';
+                                $filename = $file->getClientOriginalName();
+                                $upload_success = $file->move($destinationPath, $filename);
+                                $uploadcount ++;
+                            
+                            Image::create([
+                                'user_id' => Auth::user()->id,
+                                'post_id' => $status->id,
+                                'images' => 'status/' . $filename,
+                            ]);
+
+                        }
+                }
+
+                if($uploadcount == $file_count){
+                    return response()->json(['success'=>'Success']);
+                }
+                else {
+                    return response()->json(['error'=>'error']);
+                }
+            }
         }
+        
         if($request->hasFile('video')){
 
         }
