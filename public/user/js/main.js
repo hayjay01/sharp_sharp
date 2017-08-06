@@ -64,43 +64,43 @@ function printErrorMsg (msg) {
 
 // creating post
 
-$("#post_submit").click(function() {
-    var url = $("#post_create").attr('action');
-    var $this = $(this);
-    $this.button('loading');
+// $("#post_submit").click(function() {
+//     var url = $("#post_create").attr('action');
+//     var $this = $(this);
+//     $this.button('loading');
 
-    $.ajax({
-        url: url,
-        method: "POST",
-        dataType: "JSON",
-        data: $("#post_create").serialize(),
-        success: function(data){
-            if($.isEmptyObject(data.error)){
-                if(data.success === "Success"){
-                    setTimeout(function() {
-                    $this.button('reset');
-                    });
-                    $("#update_pass").css({
-                        opacity: 1
-                    });
-                    $(".print-success-msg").text('Updated successfully....').show();
-                    $(".print-success-msg").fadeOut(10000);
-                    setTimeout(function() {
-                         $('#myModal').modal('hide');
-                    }, 5000);                   
-                }
-            }else{
-                setTimeout(function() {
-                $this.button('reset');
-                });
-                $("#update_pass").css({
-                        opacity: 1
-                    });
-                printErrorMsg(data.error);
-            }
-        }
-    })
-})
+//     $.ajax({
+//         url: url,
+//         method: "POST",
+//         dataType: "JSON",
+//         data: $("#post_create").serialize(),
+//         success: function(data){
+//             if($.isEmptyObject(data.error)){
+//                 if(data.success === "Success"){
+//                     setTimeout(function() {
+//                     $this.button('reset');
+//                     });
+//                     $("#update_pass").css({
+//                         opacity: 1
+//                     });
+//                     $(".print-success-msg").text('Updated successfully....').show();
+//                     $(".print-success-msg").fadeOut(10000);
+//                     setTimeout(function() {
+//                          $('#myModal').modal('hide');
+//                     }, 5000);                   
+//                 }
+//             }else{
+//                 setTimeout(function() {
+//                 $this.button('reset');
+//                 });
+//                 $("#update_pass").css({
+//                         opacity: 1
+//                     });
+//                 printErrorMsg(data.error);
+//             }
+//         }
+//     })
+// })
 
 // creating group
 

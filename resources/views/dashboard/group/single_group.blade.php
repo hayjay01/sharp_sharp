@@ -16,18 +16,28 @@
         <form method="POST" action="{{ route('post.create') }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <div class="panel-body">
+
                 <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                     <label></label>
                     <textarea name="content" id="content" class="form-control" placeholder="Whats on your mind"></textarea>
 
                     @if($errors->has('content'))
                         <span class="help-block">{{ $errors->first('content') }}</span>
+
+                <div class="form-group{{ $errors->has('post') ? ' has-error' : '' }}">
+                    <label></label>
+                    <textarea name="post" id="post" class="form-control" placeholder="Whats on your mind"></textarea>
+
+                    @if($errors->has('post'))
+                        <span class="help-block">{{ $errors->first('post') }}</span>
+
                     @endif
                 </div>
             </div>
 
             <!-- Table -->
             <table class="table">
+
                 <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                     <input type="file" name="image[]" id="" multiple>
 
@@ -49,7 +59,7 @@
                         <span class="help-block">{{ $errors->first('text') }}</span>
                     @endif
                 </div>    
-                
+     
                 <span class="pull-left">
                     <div class="form-group">
                         <select name="see" id="" class="form-control">

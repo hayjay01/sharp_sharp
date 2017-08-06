@@ -98,11 +98,13 @@
       <button type="button" id="register_button">Register</button>
       <div id="loader" style="display: none;"><img src="{{ asset('loader.gif') }}"></div>
     </form></br>
-    <h3>Or Login with your social media</h3></br>
-    <a href="#" class="fa fa-facebook"></a>
-    <a href="#" class="fa fa-twitter"></a>
-    <a href="#" class="fa fa-google"></a>
-    <a href="{{ route('social.auth', ['provider' => 'linkedin']) }}" class="fa fa-linkedin"></a>
+    <center>
+      <h3>Or Login with your social media</h3></br>
+          <a href="#" class="fa fa-facebook"></a>
+          <a href="#" class="fa fa-twitter"></a>
+          <a href="#" class="fa fa-google"></a>
+          <a href="{{ route('social.auth', ['provider' => 'linkedin']) }}" class="fa fa-linkedin"></a>
+    </center>
   </div>
   
 </div>

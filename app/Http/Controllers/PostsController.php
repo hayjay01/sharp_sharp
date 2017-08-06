@@ -54,12 +54,13 @@ class PostsController extends Controller
                 
                 // getting all of the post data
                 $files = Input::file('image');
-                
+              
                 // Making counting of uploaded images
                 $file_count = count($files);
 
                 // start count how many uploaded
                 $uploadcount = 0;
+
 
                 $status = Post::create([
                     'user_id' => Auth::user()->id,
@@ -70,6 +71,7 @@ class PostsController extends Controller
                     $rules = array('file' => 'required|image|max:1000'); //'required|mimes:png,gif,jpeg,txt,pdf,doc'
                     $validator = Validator::make(array('file'=> $file), $rules);
                         if($validator->passes()){
+
                             $destinationPath = base_path() . '/public/status/';
                                 $filename = $file->getClientOriginalName();
                                 $upload_success = $file->move($destinationPath, $filename);
@@ -93,6 +95,7 @@ class PostsController extends Controller
                     return redirect()->back();
                 }
             }
+
         }
         else if($request->hasFile('video'))
         {
@@ -165,6 +168,14 @@ class PostsController extends Controller
             
             Session::flash('success', 'Post created successfully');
             return redirect()->back();
+
+
+        }else{
+            $this->validate($request, [
+            'post' => 'required',
+            'see' => 'required',
+        ]);
+
 
         }
         

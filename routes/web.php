@@ -12,6 +12,15 @@
 */
 
 
+
+Route::group(['middleware' => ['admin']], function() {
+    Route::group(['prefix' => 'admin'], function() {
+        Route::match(['get', 'post'], '/', 'Admin\AdminController@index');
+            // Route::get('/users/{id}', 'Admin\UserController@show');
+
+    });
+});
+
 Route::get('/', [
     'uses' => 'AuthController@getForm',
     'as' => 'login',
