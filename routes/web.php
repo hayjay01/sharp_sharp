@@ -12,6 +12,7 @@
 */
 
 
+
 Route::group(['middleware' => ['admin']], function() {
     Route::group(['prefix' => 'admin'], function() {
         Route::match(['get', 'post'], '/', 'Admin\AdminController@index');
@@ -19,6 +20,7 @@ Route::group(['middleware' => ['admin']], function() {
 
     });
 });
+
 Route::get('/', [
     'uses' => 'AuthController@getForm',
     'as' => 'login',

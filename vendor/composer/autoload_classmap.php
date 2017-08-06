@@ -31,7 +31,9 @@ return array(
     'App\\Http\\Controllers\\CategoriesController' => $baseDir . '/app/Http/Controllers/CategoriesController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\GroupsController' => $baseDir . '/app/Http/Controllers/GroupsController.php',
+
     'App\\Http\\Controllers\\MembersController' => $baseDir . '/app/Http/Controllers/MembersController.php',
+
     'App\\Http\\Controllers\\PostsController' => $baseDir . '/app/Http/Controllers/PostsController.php',
     'App\\Http\\Controllers\\SocialAuthController' => $baseDir . '/app/Http/Controllers/SocialAuthController.php',
     'App\\Http\\Controllers\\UsersController' => $baseDir . '/app/Http/Controllers/UsersController.php',
@@ -60,7 +62,8 @@ return array(
     'CreateCategoriesTable' => $baseDir . '/database/migrations/2017_08_05_111759_create_categories_table.php',
     'CreateGroupsTable' => $baseDir . '/database/migrations/2017_08_04_144519_create_groups_table.php',
     'CreateImagesTable' => $baseDir . '/database/migrations/2017_08_04_144555_create_images_table.php',
-    'CreateMembersTable' => $baseDir . '/database/migrations/2017_08_05_211101_create_members_table.php',
+
+    'CreateMembersTable' => $baseDir . '/database/migrations/2017_08_06_172730_create_members_table.php',
     'CreateNewsTable' => $baseDir . '/database/migrations/2017_08_04_144538_create_news_table.php',
     'CreateOauthIdentitiesTable' => $baseDir . '/database/migrations/2017_08_04_204825_create_oauth_identities_table.php',
     'CreatePasswordResetsTable' => $baseDir . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',

@@ -16,36 +16,50 @@
         <form method="POST" action="{{ route('post.create') }}" enctype="multipart/form-data" >
             {{ csrf_field() }}
             <div class="panel-body">
+
+                <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+                    <label></label>
+                    <textarea name="content" id="content" class="form-control" placeholder="Whats on your mind"></textarea>
+
+                    @if($errors->has('content'))
+                        <span class="help-block">{{ $errors->first('content') }}</span>
+
                 <div class="form-group{{ $errors->has('post') ? ' has-error' : '' }}">
                     <label></label>
                     <textarea name="post" id="post" class="form-control" placeholder="Whats on your mind"></textarea>
 
                     @if($errors->has('post'))
                         <span class="help-block">{{ $errors->first('post') }}</span>
+
                     @endif
                 </div>
             </div>
 
             <!-- Table -->
             <table class="table">
-                <span class="pull-left">
-                    {{-- <div class="element"> --}}
-                    {{-- <i class="fa fa-camera"></i><span class="name"></span> --}}
+
+                <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                     <input type="file" name="image[]" id="" multiple>
-                    </div>
-                </span>
-                {{-- <span class="pull-left">
-                    <div class="element">
-                    <i class="fa fa-video-camera"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="video" id="">
-                    </div>
-                </span>
-                <span class="pull-left">
-                    <div class="element">
-                    <i class="fa fa-file-text"></i><span class="name"></span>
-                    <input style="display: none" type="file" name="text" id="">
-                    </div>
-                </span> --}}
+
+                    @if($errors->has('image'))
+                        <span class="help-block">{{ $errors->first('image') }}</span>
+                    @endif
+                </div>
+                <div class="form-group{{ $errors->has('video') ? ' has-error' : '' }}">  
+                    <input type="file" name="video" >
+
+                    @if($errors->has('video'))
+                        <span class="help-block">{{ $errors->first('video') }}</span>
+                    @endif
+                </div>  
+                <div class="form-group{{ $errors->has('text') ? ' has-error' : '' }}">
+                    <input type="file" name="text" >
+
+                    @if($errors->has('text'))
+                        <span class="help-block">{{ $errors->first('text') }}</span>
+                    @endif
+                </div>    
+     
                 <span class="pull-left">
                     <div class="form-group">
                         <select name="see" id="" class="form-control">
@@ -72,15 +86,6 @@
         </div>
         <div class="btn-group" role="group">
             <button type="button" class="btn btn-info">Videos</button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">Sounds</button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">Files</button>
-        </div>
-        <div class="btn-group" role="group">
-            <button type="button" class="btn btn-info">Maps</button>
         </div>
     </div>
     <p></br></p>

@@ -91,21 +91,21 @@ function redirectIflogin(url_dashboard)
 
 $("#login_button").click(function() {
   var url_login = $("#login_form").attr('action');
-  var login_form = $("#login_form").serializeArray();
+  var login_form = $("#login_form").serializeArray(); 
   loader_login('on');
   $.post(url_login, login_form, function(data) {
         if(data === "fail"){
             loader_login('off');
-            $("#log").addClass('alert alert-danger').fadeIn(2000, function() {
+            $("#log").fadeIn(2000, function() {
                 $(this).hide();
             });
-            $("#msg").text('Invalid login credentials')
+            $("#msg").text('Invalid login credentials').css('color', 'red');
         }else{
             loader_login('off');
             $("#log").addClass('alert alert-success').fadeIn(2000, function() {
                 $(this).hide();
             });
-            $("#msg").text('Logged in, redirecting...');
+            $("#msg").text('Logged in, redirecting...').css('color', 'green');
              redirectIflogin('/user/dashboard');
         }
         

@@ -24,4 +24,10 @@ class Post extends Model
     {
     	return $this->hasMany('App\Video');
     }
+
+    public function files()
+    {
+        return $this->hasMany('App\News');
+    }
+
 }

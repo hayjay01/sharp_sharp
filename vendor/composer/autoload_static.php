@@ -395,6 +395,7 @@ class ComposerStaticInit449e23f5870060d50bfdd3e70d0f231b
         'App\\Http\\Controllers\\CategoriesController' => __DIR__ . '/../..' . '/app/Http/Controllers/CategoriesController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\GroupsController' => __DIR__ . '/../..' . '/app/Http/Controllers/GroupsController.php',
+
         'App\\Http\\Controllers\\MembersController' => __DIR__ . '/../..' . '/app/Http/Controllers/MembersController.php',
         'App\\Http\\Controllers\\PostsController' => __DIR__ . '/../..' . '/app/Http/Controllers/PostsController.php',
         'App\\Http\\Controllers\\SocialAuthController' => __DIR__ . '/../..' . '/app/Http/Controllers/SocialAuthController.php',
@@ -424,7 +425,8 @@ class ComposerStaticInit449e23f5870060d50bfdd3e70d0f231b
         'CreateCategoriesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_05_111759_create_categories_table.php',
         'CreateGroupsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_04_144519_create_groups_table.php',
         'CreateImagesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_04_144555_create_images_table.php',
-        'CreateMembersTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_05_211101_create_members_table.php',
+
+        'CreateMembersTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_06_172730_create_members_table.php',
         'CreateNewsTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_04_144538_create_news_table.php',
         'CreateOauthIdentitiesTable' => __DIR__ . '/../..' . '/database/migrations/2017_08_04_204825_create_oauth_identities_table.php',
         'CreatePasswordResetsTable' => __DIR__ . '/../..' . '/database/migrations/2014_10_12_100000_create_password_resets_table.php',
